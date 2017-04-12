@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Bio from './Bio'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      bioData : {}
+    }
+  }
+
+  getUserData() {
+    this.setState({bioData: {
+            name: 'Sridhar Uyyala', 
+            location: '97124', 
+            summary: 'Web developer',
+            photo: './profile_pic.png'}})
+  }
+
+  componentDidMount(){
+		this.getUserData();
+	}
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <Bio bioData={this.state.bioData}/>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
