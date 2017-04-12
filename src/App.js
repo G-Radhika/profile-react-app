@@ -3,15 +3,20 @@ import logo from './logo.svg';
 import './App.css';
 import Bio from './Bio'
 import Skills from './Skills'
+import {EventEmitter} from 'events';
+
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       bioData : {},
-      skills : []
+      skills : [],
     }
+    this.emitter = new EventEmitter()
   }
+
+  
 
   getUserData() {
     this.setState({bioData: {
@@ -25,17 +30,26 @@ class App extends Component {
     this.setState({skills: ['javascript', 'css', 'html', 'react']})
   }
 
+  handleBioFormSubmit(bioData2){
+		  this.setState({bioData: bioData2})
+	}
+
+  componentWillUpdate() {
+    //alert('App: component will update')
+  }
+
 
   componentDidMount(){
 		this.getUserData()
     this.getSkills()
+    this.emitter.addListener('NewBioData', (bioData) => this.handleBioFormSubmit(bioData) )
 	}
 
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <Bio bioData={this.state.bioData}/>
+          <Bio  emitter={this.emitter} bioData={this.state.bioData}/>
         </div>
         <div className="App-header">
           <Skills skills={this.state.skills}/>
