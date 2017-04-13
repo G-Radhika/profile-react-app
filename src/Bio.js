@@ -9,15 +9,10 @@ class Bio extends Component {
       this.state = {isBioFormOn: false};
 
       // This binding is necessary to make `this` work in the callback
-      this.handleEditBio = this.handleEditBio.bind(this);
+      this.handleBioFormSubmit = this.handleBioFormSubmit.bind(this)
   }
 
   componentWillUpdate() {
-  }
-
-  handleEditBio(e) {
-    e.preventDefault()
-    this.setState({isBioFormOn: true})
   }
 
   handleBioFormSubmit(bioData) {
@@ -30,10 +25,7 @@ class Bio extends Component {
     return (
       <div className="Bio">
         <div className="Bio-Menu">
-          <div className="Bio-Edit">
-            <button onClick={this.handleEditBio}>Edit</button>
-            {this.state.isBioFormOn ? <BioForm onFormSubmit={this.handleBioFormSubmit.bind(this)} /> : <div/> }
-          </div>
+          <BioForm onFormSubmit={this.handleBioFormSubmit.bind(this)}/>
         </div>
         <div className="Bio-Data">
           <img src={bioData.photo} className="Bio-Photo" alt="profile pic" />
