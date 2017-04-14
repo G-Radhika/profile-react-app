@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Bio.css';
 import BioForm from './BioForm'
+import {Jumbotron} from 'react-bootstrap'
+import {Image} from 'react-bootstrap'
 
 class Bio extends Component {
 
@@ -16,7 +18,6 @@ class Bio extends Component {
   }
 
   handleBioFormSubmit(bioData) {
-    this.setState({isBioFormOn: false})
     this.props.emitter.emit('NewBioData', bioData)
   }
 
@@ -24,15 +25,21 @@ class Bio extends Component {
     const bioData = this.props.bioData
     return (
       <div className="Bio">
+        <Jumbotron>
         <div className="Bio-Menu">
           <BioForm onFormSubmit={this.handleBioFormSubmit.bind(this)}/>
         </div>
         <div className="Bio-Data">
-          <img src={bioData.photo} className="Bio-Photo" alt="profile pic" />
-          <div className="Bio-Name"><h4>{bioData.name}</h4></div>
-          <div className="Bio-Location"><h4>{bioData.location}</h4></div>
-          <div className="Bio-Summary"><h4>{bioData.summary}</h4></div>
+          <div>
+            <Image src={bioData.photo} responsive alt="242x200" />
+          </div>
+          <div>
+            <div className="Bio-Name"><h4>{bioData.name}</h4></div>
+            <div className="Bio-Location"><h4>{bioData.location}</h4></div>
+            <div className="Bio-Summary"><h4>{bioData.summary}</h4></div>
+          </div>
         </div>
+        </Jumbotron>
       </div>
     );
   }

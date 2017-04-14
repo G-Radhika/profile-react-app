@@ -4,6 +4,7 @@ import './App.css';
 import Bio from './Bio'
 import Skills from './Skills'
 import {EventEmitter} from 'events';
+import {Jumbotron} from 'react-bootstrap'
 
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
             name: 'Sridhar Uyyala', 
             location: '97124', 
             summary: 'Web developer',
-            photo: './profile_pic.png'}})
+            photo: './photo_default.png'}})
   }
 
   getSkills() {
@@ -48,10 +49,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
+        <div className="App-Container">
           <Bio  emitter={this.emitter} bioData={this.state.bioData}/>
-        </div>
-        <div className="App-header">
           <Skills skills={this.state.skills}/>
         </div>
       </div>

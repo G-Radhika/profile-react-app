@@ -1,13 +1,10 @@
 .Bio {
   text-align: center;
-  background-color: blueviolet;
-  height: 150px;
-  padding: 20px;
-  color: white;
-  position: relative
+  background-color: white;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .Bio-Photo {
-  animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
