@@ -6,7 +6,8 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-bootstrap": "latest",
-    "events": "latest"
+    "events": "latest",
+    "jquery": "^3.2.1"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
