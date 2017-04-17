@@ -17,6 +17,7 @@ class App extends Component {
       projects: [],
     }
     this.emitter = new EventEmitter()
+    this.handleProjecstData = this.handleProjecstData.bind(this)
   }
 
   
@@ -41,10 +42,15 @@ class App extends Component {
     //alert('App: component will update')
   }
 
-  handleProjectData(projectData) {
-    let new_projects = []
-    new_projects = new_projects[{...this.state.projects}, projectData]
-    this.setState({projects:new_projects})
+  handleProjecstData(new_projects) {
+    let all_projects = []
+    this.state.projects.forEach(function(project) {
+      all_projects.push(project)
+    })
+    new_projects.forEach(function(project) {
+      all_projects.push(project)
+    })
+    this.setState({projects:all_projects})
   }
 
 
@@ -52,7 +58,7 @@ class App extends Component {
 		this.getUserData()
     this.getSkills()
     this.emitter.addListener('NewBioData', (bioData) => this.handleBioFormSubmit(bioData) )
-    this.emitter.addListener('NewProjectData', (projectData) => this.handleProjectData(projectData) )
+    this.emitter.addListener('NewProjectsData', (projects) => this.handleProjecstData(projects) )
     this.emitter.addListener('NewSkillsData', (skills) => this.setState({skills: skills}) )
 	}
 

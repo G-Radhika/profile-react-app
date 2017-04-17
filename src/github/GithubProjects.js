@@ -82,7 +82,7 @@ class GitHubProjects extends Component{
                     	<Modal.Title>GitHub Projets</Modal.Title>
                 	</Modal.Header>
                 	<Modal.Body>
-						<Search onFormSubmit = {this.handleFormSubmit.bind(this)} />
+						<Search onFormSubmit={this.handleFormSubmit.bind(this)} />
 						<Profile {...this.state} />
 					</Modal.Body>
 				</Modal>

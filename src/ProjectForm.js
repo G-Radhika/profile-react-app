@@ -19,7 +19,6 @@ class ProjectForm extends Component{
         this.state = {
             showModal : false,
             name: '',
-            location: '',
             summary: '',
             photo: ''
 
@@ -28,7 +27,6 @@ class ProjectForm extends Component{
         this.onShowModal = this.onShowModal.bind(this)
         this.onHideModal = this.onHideModal.bind(this)
         this.handleNameChange = this.handleNameChange.bind(this)
-        this.handleLocationChange = this.handleLocationChange.bind(this)
         this.handleSummaryChange = this.handleSummaryChange.bind(this)
     }
 
@@ -55,17 +53,13 @@ class ProjectForm extends Component{
         //alert(ReactDOM.findDOMNode('name'))
         this.onHideModal()
 
-		this.props.onFormSubmit({
+		this.props.onSubmit([{
             name: this.state.name,
-            location: this.state.location,
             summary: this.state.summary,
             photo: this.state.photo
-        });
+        }]);
 
-        this.refs.name.value = ''
-        this.refs.location.value = ''
-        this.refs.summary.value = ''
-        this.refs.photo.value = ''
+        
 	}
 
 	render(){
@@ -83,7 +77,7 @@ class ProjectForm extends Component{
 		return(
         <div>
            <Button bsStyle="primary"  onClick={this.onShowModal}>
-           Edit
+           +Project
            </Button>
            <Modal show={this.state.showModal} onHide={this.onHideModal}>
                 <Modal.Header closeButton>
@@ -101,14 +95,6 @@ class ProjectForm extends Component{
                                 onChange={this.handleNameChange} 
                             />
                             <FieldGroup
-                                id="formControlsLocation"
-                                value={this.state.location}
-                                type="number"
-                                label="Zipcode"
-                                placeholder="Enter zipcode"
-                                onChange={this.handleLocationChange}
-                            />
-                            <FieldGroup
                                 id="formControlsSummary"
                                 value={this.state.summary}
                                 type="text"
@@ -120,7 +106,6 @@ class ProjectForm extends Component{
                             <FieldGroup
                                 id="formControlsFile"
                                 value={this.state.photo}
-                                ref="photo"
                                 type="file"
                                 label="Photo"
                                 help="Example block-level help text here."

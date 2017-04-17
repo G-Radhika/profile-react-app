@@ -11,6 +11,10 @@ class RepoList extends Component{
 		this.handleSelected = this.handleSelected.bind(this)
 	}
 
+	handleSelected() {
+		
+	}
+
 	render(){
 		return(
 			<div>

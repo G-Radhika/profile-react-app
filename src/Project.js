@@ -18,7 +18,7 @@ class Project extends Component {
   }
 
   handleFormSubmit(projectData) {
-    this.props.emitter.emit('NewProjectData', projectData)
+    this.props.emitter.emit('NewProjectData', [projectData])
   }
 
   render() {
