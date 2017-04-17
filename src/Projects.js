@@ -43,7 +43,10 @@ class Projects extends Component {
 			 	<ul className="Projects-List">
 			 		{
 			 			this.props.projects.map(project => {
-			 				return  <Jumbotron key={project.name}><Project projectData={project}/></Jumbotron>
+			 				return ( 
+                                 <Jumbotron key={project.name}>
+                                    <Project projectData={project}/>
+                                 </Jumbotron>)
 			 			})
 			 		}
 			 	</ul>

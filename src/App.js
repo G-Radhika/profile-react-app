@@ -26,8 +26,13 @@ class App extends Component {
     this.setState({bioData: {
             name: 'Sridhar Uyyala', 
             location: '97124', 
-            summary: 'Web developer',
-            photo: './photo_default.png'}})
+            summary: 'Regardless of which you choose to include on your resume, this section should\
+Be focused on helping an employer meet his or her goals (this means you will want to write a slightly different objective or summary statement for each job you are trying to get)\
+Start with the most important idea about yourself that you want to tell a hiring manager\
+Be brief but concise (a few bullet points of your best skills and achievements, or a sentence or two that really tells a potential employer what you have to offer if he keeps reading)\
+Position you as the best model of whatever position, role, or industry you are trying to enter; this means you should research the position before you write your resume for it\
+Include keywords—that is, words that every person in the field or position you are trying to get will know; CareerBuilder suggests using some general keywords, too, but these are less critical in a summary statement than in the body of your resume',
+            photo: 'photo_default.png'}})
   }
 
   getSkills() {
@@ -48,6 +53,7 @@ class App extends Component {
       all_projects.push(project)
     })
     new_projects.forEach(function(project) {
+      project.photo = "photo_default.png"
       all_projects.push(project)
     })
     this.setState({projects:all_projects})

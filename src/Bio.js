@@ -26,19 +26,27 @@ class Bio extends Component {
     return (
       <div className="Bio">
         <Jumbotron>
-        <div className="Bio-Menu">
-          <BioForm onFormSubmit={this.handleBioFormSubmit.bind(this)}/>
-        </div>
-        <div className="Bio-Data">
-          <div>
-            <Image src={bioData.photo} responsive alt="242x200" />
+           <div className="Bio-Menu">
+            <BioForm onFormSubmit={this.handleBioFormSubmit.bind(this)}/>
           </div>
-          <div>
-            <div className="Bio-Name"><h4>{bioData.name}</h4></div>
-            <div className="Bio-Location"><h4>{bioData.location}</h4></div>
-            <div className="Bio-Summary"><h4>{bioData.summary}</h4></div>
-          </div>
-        </div>
+          <div className="row">
+			    	<div className="col-md-4 col-xs-6">
+              <div className="list-group-item" style={{width:"95%"}}><strong></strong> {bioData.name}</div>
+              <div className="list-group-item" style={{width:"95%"}}><strong></strong> {bioData.location}</div>
+			    	  <img src={bioData.photo} alt="photo_default.png" class="img-thumbnail img-responsive" style={{width:"90%"}}/>
+			    	</div>
+			    	<div className="col-md-8 col-xs-12">
+			    		<div className="row">
+			    			<div className="">
+                    <h3>Summary</h3>
+			    					<div className="list-group-item" style={{width:"95%"}}><strong></strong> {bioData.summary}  </div>
+			    			</div>
+			    		</div>
+			    		<hr />
+			    		<br />
+			    		<a className="btn btn-primary" target="_blank" href={bioData.name}>Visit Profile</a>
+			    	</div>
+			    </div>
         </Jumbotron>
       </div>
     );

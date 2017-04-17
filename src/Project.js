@@ -24,20 +24,28 @@ class Project extends Component {
   render() {
     const projectData = this.props.projectData
     return (
-      <div className="Project">
+       <div className="Project">
         <Jumbotron>
-        <div className="Project-Menu">
-          <ProjectForm onFormSubmit={this.handleFormSubmit.bind(this)}/>
-        </div>
-        <div className="Project-Data">
-          <div>
-            <Image src={projectData.photo} responsive alt="242x200" />
+           <div className="Project-Menu">
+            <ProjectForm onFormSubmit={this.handleFormSubmit.bind(this)}/>
           </div>
-          <div>
-            <div className="Project-Name"><h4>{projectData.name}</h4></div>
-            <div className="Project-Summary"><h4>{projectData.summary}</h4></div>
-          </div>
-        </div>
+          <div className="row">
+			    	<div className="col-md-4 col-xs-6">
+              <div className="list-group-item" style={{width:"95%"}}><strong></strong> {projectData.name}</div>
+			    	  <img src={projectData.photo} alt="240x200" class="img-thumbnail img-responsive" style={{width:"90%"}}/>
+			    	</div>
+			    	<div className="col-md-8 col-xs-12">
+			    		<div className="row">
+			    			<div className="">
+                    <h3>Description</h3>
+			    					<div className="list-group-item" style={{width:"95%"}}><strong></strong> {projectData.summary}  </div>
+			    			</div>
+			    		</div>
+			    		<hr />
+			    		<br />
+			    		<a className="btn btn-primary" target="_blank" href={projectData.name}>More details</a>
+			    	</div>
+			    </div>
         </Jumbotron>
       </div>
     );

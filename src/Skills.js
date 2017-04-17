@@ -10,14 +10,15 @@ class Skills extends Component {
     return (
       <div className="Skills">
         <Jumbotron>
-        <div className="skills-list">
-          <ul className="list-group">
+        <div className="label-group">
 			 		{
-                         this.props.skills.map(skill => {
-			 				return <div key={skill}> <h4>{skill}</h4> </div>
+              this.props.skills.map(skill => { return ( 
+                <button className="btn btn-info btn-info-outline" type="button" key={skill}>
+                {skill} <span className="badge">4</span>
+                </button>
+                )
 			 			})
 			 		}
-			    </ul>
         </div>
         </Jumbotron>
       </div>

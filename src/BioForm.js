@@ -82,10 +82,12 @@ class BioForm extends Component{
         )
 		return(
         <div>
-           <Button bsStyle="primary" bsSize="large" onClick={this.onShowModal}>
-           Edit
-           </Button>
-           <Modal show={this.state.showModal} onHide={this.onHideModal}>
+            <div>
+                <Button bsStyle="primary"  onClick={this.onShowModal}>
+                 Edit
+                </Button>
+            </div>
+            <Modal show={this.state.showModal} onHide={this.onHideModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
