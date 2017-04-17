@@ -66,6 +66,12 @@ class GitHubProjects extends Component{
 		});
 	}
 
+	handleProjectsSelected(projects) {
+		this.onHideModal()
+		this.props.onSubmit(projects)
+	}
+	
+
 	componentDidMount(){
 		//this.getUserData();
 		//this.getUserRepos();
@@ -83,7 +89,7 @@ class GitHubProjects extends Component{
                 	</Modal.Header>
                 	<Modal.Body>
 						<Search onFormSubmit={this.handleFormSubmit.bind(this)} />
-						<Profile {...this.state} />
+						<Profile {...this.state} onSubmit={this.handleProjectsSelected.bind(this)} />
 					</Modal.Body>
 				</Modal>
 			</div>
