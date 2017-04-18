@@ -4,47 +4,43 @@ import RepoList from './RepoList';
 class Profile extends Component{
 
 	render(){
-		return(
-			<div className="panel panel-default">
-			  <div className="panel-heading">
-			    <h3 className="panel-title">{this.props.userData.name}</h3>
-			  </div>
-			  <div className="panel-body">
-			    <div className="row">
-			    	<div className="col-md-4">
-			    		<img src={this.props.userData.avatar_url} className="thumbnail" style={{width:"100%"}} />
-			    	</div>
-			    	<div className="col-md-8">
-			    		<div className="row">
-			    			<div className="col-md-12">
-			    				<span className="label label-primary">{this.props.userData.public_repos} Repos</span> 
-			    				<span className="label label-success">{this.props.userData.public_gists} Public Gists</span> 
-			    				<span className="label label-info">{this.props.userData.followers} Followers</span> 
-			    				<span className="label label-danger">{this.props.userData.following} Following</span> 
-			    			</div>
-			    		</div>
-			    		<hr />
-			    		<div className="row">
-			    			<div className="col-md-12">
-			    				<ul className="list-group">
+
+		 return (
+  	<div className="container">
+  		<div className="card-group row">
+        <div className="card col-md-4">
+          <img className="card-img-top" src={this.props.userData.avatar_url} alt="Card image cap"/>
+          <div className="card-block">
+            <h4 className="card-title">{this.props.userData.name}</h4>
+						<a className="btn btn-primary" target="_blank" href={this.props.userData.html_url}>Visit Profile</a>
+          </div>
+          <ul className="list-group list-group-flush">
+							<span className="list-group-item label label-primary">{this.props.userData.public_repos} Repos</span> 
+			    		<span className="list-group-item label label-success">{this.props.userData.public_gists} Public Gists</span> 
+			    		<span className="list-group-item label label-info">{this.props.userData.followers} Followers</span> 
+			    		<span className="list-group-item label label-danger">{this.props.userData.following} Following</span> 
+          </ul>
+          <div className="card-block">
+            <a href="#" className="card-link">Email</a>
+            <a href="#" className="card-link">LinkedIn</a>
+          </div>
+        </div>
+         <div className="card col-md-8">
+          <div className="card-block">
+           	<ul className="list-group">
 			    					<li className="list-group-item"><strong>Username: </strong> {this.props.userData.login}</li>
 			    					<li className="list-group-item"><strong>Location: </strong> {this.props.userData.location}</li>
-			    					<li className="list-group-item"><strong>Email Address: </strong> {this.props.userData.email}</li>
-			    				</ul>
-			    			</div>
-			    		</div>
-			    		<br />
-			    		<a className="btn btn-primary" target="_blank" href={this.props.userData.html_url}>Visit Profile</a>
-			    	</div>
-			    </div>
-
-			    <hr />
-
-			    <h3>User Repositories</h3>
-					<RepoList onSubmit={this.props.onSubmit} userRepos={this.props.userRepos} />
-			  </div>
-			</div>
-		)
+			    					<li className="list-group-item"><strong>Email Address: </strong> {this.props.userData.email}</li>			
+			    	</ul>
+          </div>
+					<div className="card-block">
+						<h3>User Repositories</h3>
+           <RepoList onSubmit={this.props.onSubmit} userRepos={this.props.userRepos} />
+          </div>
+        </div>
+  		</div>
+  	</div>  
+    );
 	}
 }
 

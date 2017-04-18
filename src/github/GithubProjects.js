@@ -68,7 +68,7 @@ class GitHubProjects extends Component{
 
 	handleProjectsSelected(projects) {
 		this.onHideModal()
-		this.props.onSubmit(projects)
+		this.props.onFormSubmit(projects)
 	}
 	
 
@@ -79,28 +79,35 @@ class GitHubProjects extends Component{
 
 	render(){
 		return(
-			<div>
-				<div className="Github-Menu">
-					 <Button onClick={this.onShowModal}>+GitHub</Button>
-				</div>
-				<Modal show={this.state.showModal} onHide={this.onHideModal}>
-                	<Modal.Header closeButton>
-                    	<Modal.Title>GitHub Projets</Modal.Title>
-                	</Modal.Header>
-                	<Modal.Body>
-						<Search onFormSubmit={this.handleFormSubmit.bind(this)} />
-						<Profile {...this.state} onSubmit={this.handleProjectsSelected.bind(this)} />
-					</Modal.Body>
-				</Modal>
-			</div>
+        <div>
+            <button type="button" className="btn btn-primary btn-lg btn-link" data-toggle="modal" data-target="#githubFormModal">
+                Github
+            </button>
+
+            <div className="modal fade" id="githubFormModal" tabIndex="-1" role="dialog" aria-labelledby="githubModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                        <h5 className="modal-title" id="githubModalLabel">Github</h5>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <div className="modal-body">
+                    <Search onFormSubmit={this.handleFormSubmit.bind(this)} />
+					<Profile {...this.state} onSubmit={this.handleProjectsSelected.bind(this)} />
+                </div>
+            </div>
+        </div>
+        </div>
+
+          
+        </div>
 		)
 	}
 }
 
-GitHubProjects.propTypes = {
-	clientId: React.PropTypes.string,
-	clientSecret: React.PropTypes.string
-};
+
 GitHubProjects.defaultProps ={
 	clientId: '75c556ed8660b478c919',
 	clientSecret: '9d68ee85c0f8b5240f4cd36f9bd8bed7c6c95c6b'

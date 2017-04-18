@@ -1,65 +1,28 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import {Modal, Button, ButtonGroup, Popover, Tooltip, FormControl, FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap'
 import './Bio.css'
 
-function FieldGroup({ id, label, help, ...props }) {
-    return (
-        <FormGroup controlId={id}>
-        <ControlLabel>{label}</ControlLabel>
-        <FormControl {...props} />
-        {help && <HelpBlock>{help}</HelpBlock>}
-        </FormGroup>
-        );
-    }
+
 
 class BioForm extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            showModal : false,
-            name: '',
-            location: '',
-            summary: '',
-            photo: ''
+            showModal : false
 
         }
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.onShowModal = this.onShowModal.bind(this)
-        this.onHideModal = this.onHideModal.bind(this)
-        this.handleNameChange = this.handleNameChange.bind(this)
-        this.handleLocationChange = this.handleLocationChange.bind(this)
-        this.handleSummaryChange = this.handleSummaryChange.bind(this)
-    }
 
-    onShowModal() {
-        this.setState({ showModal: true })
-    }
-
-    onHideModal() {
-        this.setState({ showModal: false })
-    }
-
-    handleNameChange(e) {
-        this.setState({ name: e.target.value })
-    }
-     handleLocationChange(e) {
-        this.setState({ location: e.target.value })
-    }
-     handleSummaryChange(e) {
-        this.setState({ summary: e.target.value })
     }
 
 	handleSubmit(e){
 		e.preventDefault()
-        //alert(ReactDOM.findDOMNode('name'))
-        this.onHideModal()
 
 		this.props.onFormSubmit({
-            name: this.state.name,
-            location: this.state.location,
-            summary: this.state.summary,
-            photo: this.state.photo
+            name: this.refs.name.value,
+            location: this.refs.location.value,
+            summary: this.refs.summary.value,
+            photo: "photo_default.png"
         });
 
         this.refs.name.value = ''
@@ -69,71 +32,47 @@ class BioForm extends Component{
 	}
 
 	render(){
-
-        const popover = (
-            <Popover id="modal-popover" title="popover">
-                very popover. such engagement
-            </Popover>
-        )
-        const tooltip = (
-        <Tooltip id="modal-tooltip">
-            wow.
-        </Tooltip>
-        )
 		return(
         <div>
-            <div>
-                <Button bsStyle="primary"  onClick={this.onShowModal}>
-                 Edit
-                </Button>
+            <button type="button" className="btn btn-primary btn-lg btn-link  btn-active" data-toggle="modal" data-target="#bioFormModal">
+                {this.props.buttonName}
+            </button>
+
+            <div className="modal fade" id="bioFormModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLabel">Bio</h5>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <div className="modal-body">
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="formGroupName">Full Name</label>
+                            <input type="text" className="form-control" ref="name" id="formGroupName" placeholder="Enter firstname lastname"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="formGroupLocation">Location</label>
+                            <input type="number" className="form-control" ref="location" id="formGroupLocation" placeholder="Enter zipcode"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="formGroupSummary">Summary</label>
+                            <textarea className="form-control" ref="summary" id="formGroupSummary" placeholder="Enter profile summary"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="formGroupPhoto">Photo</label>
+                            <input type="file" className="form-control" ref="photo" id="formGroupPhoto" placeholder="Upload profile picture"/>
+                        </div>
+                         <button type="submit" className="btn btn-primary" data-toggle="modal" data-target="#bioFormModal">Submit</button>
+                    </form>
+                </div>
             </div>
-            <Modal show={this.state.showModal} onHide={this.onHideModal}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-			        <div className="Bio-Form">
-                        <form onSubmit={this.handleSubmit}>
-                            <FieldGroup
-                                id="formControlsText"
-                                value={this.state.name}
-                                type="text"
-                                label="Full Name:"
-                                placeholder="Enter full name"
-                                onChange={this.handleNameChange} 
-                            />
-                            <FieldGroup
-                                id="formControlsLocation"
-                                value={this.state.location}
-                                type="number"
-                                label="Zipcode"
-                                placeholder="Enter zipcode"
-                                onChange={this.handleLocationChange}
-                            />
-                            <FieldGroup
-                                id="formControlsSummary"
-                                value={this.state.summary}
-                                type="text"
-                                componentClass="textarea"
-                                label="Summary"
-                                placeholder="Enter summary"
-                                onChange={this.handleSummaryChange}
-                            />
-                            <FieldGroup
-                                id="formControlsFile"
-                                value={this.state.photo}
-                                ref="photo"
-                                type="file"
-                                label="Photo"
-                                help="Example block-level help text here."
-                            />
-                            <Button type="submit">  Submit</Button>
-                        </form>
-			        </div>
-                </Modal.Body>
-                <Modal.Footer>
-                </Modal.Footer>
-            </Modal>
+        </div>
+        </div>
+
+          
         </div>
 		)
 	}

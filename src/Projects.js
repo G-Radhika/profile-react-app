@@ -30,23 +30,13 @@ class Projects extends Component {
   render(){
 		return(
 			<div className="Projects">
-                <div className="Projects-Menu">
-                    <div className="row">
-                        <div className="col-md-1 pull-right">
-                            <GitHubProjects onSubmit={this.handleFormSubmit}/>
-                        </div>
-                        <div className="col-md-1 pull-right">
-                            <ProjectForm onSubmit={this.handleFormSubmit}/>
-                        </div>
-                    </div>
-                </div>
+               
 			 	<ul className="Projects-List">
 			 		{
 			 			this.props.projects.map(project => {
 			 				return ( 
-                                 <Jumbotron key={project.name}>
-                                    <Project projectData={project}/>
-                                 </Jumbotron>)
+                                    <Project key={project.name} projectData={project}/>
+                                 )
 			 			})
 			 		}
 			 	</ul>

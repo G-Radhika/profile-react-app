@@ -11,41 +11,46 @@ class Bio extends Component {
       this.state = {isBioFormOn: false};
 
       // This binding is necessary to make `this` work in the callback
-      this.handleBioFormSubmit = this.handleBioFormSubmit.bind(this)
+      this.handleFormSubmit = this.handleFormSubmit.bind(this)
   }
 
   componentWillUpdate() {
   }
 
-  handleBioFormSubmit(bioData) {
+  handleFormSubmit(bioData) {
     this.props.emitter.emit('NewBioData', bioData)
   }
 
   render() {
     const bioData = this.props.bioData
+    if (bioData.name === '') {
+      return (<div/>);
+    }
     return (
-      <div className="container">
-        <Jumbotron>
-          <div className="Bio-Menu pull-right">
-            <BioForm onFormSubmit={this.handleBioFormSubmit.bind(this)}/>
+  <div className="container">
+  <div className="card-group row">
+        <div className="card col-md-3">
+          <img className="card-img-top" src={bioData.photo} alt="Card image cap"/>
+          <div className="card-block">
+            <h4 className="card-title">{bioData.name}</h4>
           </div>
-          <ul className="media-list">
-            <li className="media">
-              <div className="media-left">
-                <a href="#">
-                  <img  className="media-object img-thumbnail img-responsive" src={bioData.photo} alt="..."/>
-                </a>
-              </div>
-              <div className="media-body">
-                <h3 className="media-heading">{bioData.name}</h3>
-                <h4 className="pull-left">Summary</h4>
-                <p>{bioData.summary}</p>
-              </div>
-            </li>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">{bioData.location}</li>
           </ul>
-          </Jumbotron>
+          <div className="card-block">
+            <a href="#" className="card-link">Email</a>
+            <a href="#" className="card-link">LinkedIn</a>
+            <BioForm buttonName="Edit" onFormSubmit={this.handleFormSubmit.bind(this)}/>
+          </div>
         </div>
-     
+         <div className="card col-md-9">
+          <div className="card-block">
+            <h4 className="card-title">Summary</h4>
+            <p className="card-text">{bioData.summary}</p>
+          </div>
+        </div>
+  </div>
+  </div>  
     );
   }
 }

@@ -7,9 +7,12 @@ class Skills extends Component {
 
   render() {
     //const skills = this.props.skills
+    if (this.props.skills.length === 0) {
+      return (<div/>);
+    }
     return (
-      <div className="Skills">
-        <Jumbotron>
+        <div className="card">
+          <div className="card-block">
         <div className="label-group">
 			 		{
               this.props.skills.map(skill => { return ( 
@@ -19,9 +22,9 @@ class Skills extends Component {
                 )
 			 			})
 			 		}
+           </div>
         </div>
-        </Jumbotron>
-      </div>
+        </div>
     );
   }
 }

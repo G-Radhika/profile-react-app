@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Bio from './Bio'
+import BioForm from './BioForm'
 import Skills from './Skills'
 import {EventEmitter} from 'events';
-import {Jumbotron} from 'react-bootstrap'
 import Projects from './Projects'
+import ProjectForm from './ProjectForm'
+import GitHubProjects from './github/GithubProjects'
 
 
 class App extends Component {
@@ -17,26 +19,21 @@ class App extends Component {
       projects: [],
     }
     this.emitter = new EventEmitter()
-    this.handleProjecstData = this.handleProjecstData.bind(this)
+    this.handleProjectsData = this.handleProjectsData.bind(this)
   }
 
   
 
   getUserData() {
     this.setState({bioData: {
-            name: 'Sridhar Uyyala', 
-            location: '97124', 
-            summary: 'Regardless of which you choose to include on your resume, this section should\
-Be focused on helping an employer meet his or her goals (this means you will want to write a slightly different objective or summary statement for each job you are trying to get)\
-Start with the most important idea about yourself that you want to tell a hiring manager\
-Be brief but concise (a few bullet points of your best skills and achievements, or a sentence or two that really tells a potential employer what you have to offer if he keeps reading)\
-Position you as the best model of whatever position, role, or industry you are trying to enter; this means you should research the position before you write your resume for it\
-Include keywords—that is, words that every person in the field or position you are trying to get will know; CareerBuilder suggests using some general keywords, too, but these are less critical in a summary statement than in the body of your resume',
+            name: '', 
+            location: '', 
+            summary: '',
             photo: 'photo_default.png'}})
   }
 
   getSkills() {
-    this.setState({skills: ['javascript', 'css', 'html', 'react']})
+    this.setState({skills: []})
   }
 
   handleBioFormSubmit(bioData2){
@@ -47,7 +44,7 @@ Include keywords—that is, words that every person in the field or position you
     //alert('App: component will update')
   }
 
-  handleProjecstData(new_projects) {
+  handleProjectsData(new_projects) {
     let all_projects = []
     this.state.projects.forEach(function(project) {
       all_projects.push(project)
@@ -71,10 +68,30 @@ Include keywords—that is, words that every person in the field or position you
   render() {
     return (
       <div className="App">
-        <div className="App-Container">
+        <div className="container-fluid">
+          <div className="card">
+            <ul className="nav justify-content-center">
+              <li className="nav-item">
+                <BioForm className="nav-link" buttonName="Bio" onFormSubmit={this.handleBioFormSubmit.bind(this)}/>
+              </li>
+              <li className="nav-item">
+                <ProjectForm buttonName="+Project" onFormSubmit={this.handleProjectsData}/>
+              </li>
+              <li className="nav-item">
+                <GitHubProjects onFormSubmit={this.handleProjectsData}/>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Skills</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link active" href="#">Export</a>
+              </li>
+            </ul>
+          </div>
           <Bio  emitter={this.emitter} bioData={this.state.bioData}/>
           <Skills emitter={this.emitter} skills={this.state.skills}/>
           <Projects emitter={this.emitter} projects={this.state.projects}/>
+          
         </div>
       </div>
     );

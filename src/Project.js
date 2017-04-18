@@ -24,22 +24,25 @@ class Project extends Component {
   render() {
     const projectData = this.props.projectData
     return (
-      <Jumbotron>
-          <div className="container">
-              <div className="Project-Menu pull-right">
-                <ProjectForm onFormSubmit={this.handleFormSubmit.bind(this)}/>
-              </div>
-              <div className="row featurette">
-                <div className="col-md-7">
-                  <h2 className="featurette-heading">{projectData.name} <span className="text-muted">{projectData.name}</span></h2>
-                  <p className="lead"> {projectData.summary}</p>
-                </div>
-                <div className="col-md-5">
-                  <img src={projectData.photo} alt="photo_default.png" className="featurette-image img-thumbnail img-responsive center-block" style={{width:"90%"}}/>
-                </div>
-              </div>
+      <div className="container">
+      <div className="card-group row">
+        <div className="card col-md-3">
+          <img className="card-img-top" src={projectData.photo} alt="Card image cap"/>
+          <div className="card-block">
+            <h4 className="card-title">{projectData.name}</h4>
           </div>
-        </Jumbotron>
+          <ul className="list-group list-group-flush">
+             <ProjectForm buttonName="Edit" onFormSubmit={this.handleFormSubmit.bind(this)}/>
+          </ul>
+        </div>
+         <div className="card col-md-9">
+          <div className="card-block">
+            <h4 className="card-title">Summary</h4>
+            <p className="card-text">{projectData.summary}</p>
+          </div>
+        </div>
+      </div>
+    </div>  
     );
   }
 }

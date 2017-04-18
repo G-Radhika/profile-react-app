@@ -14,7 +14,7 @@ class Search extends Component{
 
 	render(){
 		return(
-			<div>
+			<div className="card">
 				<form onSubmit={this.onSubmit.bind(this)}>
 					<label>Search Github Users</label>
 					<input type="text" ref="username" className="form-control" />
