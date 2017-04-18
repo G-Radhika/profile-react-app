@@ -24,31 +24,28 @@ class Bio extends Component {
   render() {
     const bioData = this.props.bioData
     return (
-      <div className="Bio">
+      <div className="container">
         <Jumbotron>
-           <div className="Bio-Menu">
+          <div className="Bio-Menu pull-right">
             <BioForm onFormSubmit={this.handleBioFormSubmit.bind(this)}/>
           </div>
-          <div className="row">
-			    	<div className="col-md-4 col-xs-6">
-              <div className="list-group-item" style={{width:"95%"}}><strong></strong> {bioData.name}</div>
-              <div className="list-group-item" style={{width:"95%"}}><strong></strong> {bioData.location}</div>
-			    	  <img src={bioData.photo} alt="photo_default.png" class="img-thumbnail img-responsive" style={{width:"90%"}}/>
-			    	</div>
-			    	<div className="col-md-8 col-xs-12">
-			    		<div className="row">
-			    			<div className="">
-                    <h3>Summary</h3>
-			    					<div className="list-group-item" style={{width:"95%"}}><strong></strong> {bioData.summary}  </div>
-			    			</div>
-			    		</div>
-			    		<hr />
-			    		<br />
-			    		<a className="btn btn-primary" target="_blank" href={bioData.name}>Visit Profile</a>
-			    	</div>
-			    </div>
-        </Jumbotron>
-      </div>
+          <ul className="media-list">
+            <li className="media">
+              <div className="media-left">
+                <a href="#">
+                  <img  className="media-object img-thumbnail img-responsive" src={bioData.photo} alt="..."/>
+                </a>
+              </div>
+              <div className="media-body">
+                <h3 className="media-heading">{bioData.name}</h3>
+                <h4 className="pull-left">Summary</h4>
+                <p>{bioData.summary}</p>
+              </div>
+            </li>
+          </ul>
+          </Jumbotron>
+        </div>
+     
     );
   }
 }

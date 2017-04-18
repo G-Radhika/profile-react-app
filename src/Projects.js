@@ -32,10 +32,10 @@ class Projects extends Component {
 			<div className="Projects">
                 <div className="Projects-Menu">
                     <div className="row">
-                        <div className="col-md-1">
+                        <div className="col-md-1 pull-right">
                             <GitHubProjects onSubmit={this.handleFormSubmit}/>
                         </div>
-                        <div className="col-md-1">
+                        <div className="col-md-1 pull-right">
                             <ProjectForm onSubmit={this.handleFormSubmit}/>
                         </div>
                     </div>
