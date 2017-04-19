@@ -15,15 +15,16 @@ class Skills extends Component {
           <div className="card-block">
         <div className="label-group">
 			 		{
-              this.props.skills.map(skill => { return ( 
-                <button className="btn btn-info btn-info-outline" type="button" key={skill}>
-                {skill} <span className="badge">4</span>
-                </button>
+              this.props.skills.map(skill => { return (
+                <div className="skill" key={skill}>
+                  {skill}
+                </div>
+               
                 )
 			 			})
 			 		}
            </div>
-        </div>
+           </div>
         </div>
     );
   }

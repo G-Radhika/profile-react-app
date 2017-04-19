@@ -10,15 +10,10 @@ class Projects extends Component {
   constructor(props){
       super(props)
       this.state = {
-          addProject: false
       };
-      this.handleAddProject = this.handleAddProject.bind(this)
       this.handleFormSubmit = this.handleFormSubmit.bind(this)
   }
 
-  handleAddProject() {
-      this.setState({addProject: true})
-  }
 
   handleFormSubmit(projects) {
        this.props.emitter.emit('NewProjectsData', projects)
@@ -30,8 +25,6 @@ class Projects extends Component {
   render(){
 		return(
 			<div className="Projects">
-               
-			 	<ul className="Projects-List">
 			 		{
 			 			this.props.projects.map(project => {
 			 				return ( 
@@ -39,7 +32,6 @@ class Projects extends Component {
                                  )
 			 			})
 			 		}
-			 	</ul>
             
 			</div>
 		)

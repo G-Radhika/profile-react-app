@@ -24,16 +24,14 @@ class Project extends Component {
   render() {
     const projectData = this.props.projectData
     return (
-      <div className="container">
+      <div className="container-fluid">
       <div className="card-group row">
         <div className="card col-md-3">
           <img className="card-img-top" src={projectData.photo} alt="Card image cap"/>
           <div className="card-block">
             <h4 className="card-title">{projectData.name}</h4>
+            <ProjectForm buttonName="Edit" onFormSubmit={this.handleFormSubmit.bind(this)}/>
           </div>
-          <ul className="list-group list-group-flush">
-             <ProjectForm buttonName="Edit" onFormSubmit={this.handleFormSubmit.bind(this)}/>
-          </ul>
         </div>
          <div className="card col-md-9">
           <div className="card-block">
@@ -42,7 +40,7 @@ class Project extends Component {
           </div>
         </div>
       </div>
-    </div>  
+      </div>
     );
   }
 }

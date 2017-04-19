@@ -27,17 +27,12 @@ class Bio extends Component {
       return (<div/>);
     }
     return (
-  <div className="container">
+  <div className="container-fluid">
   <div className="card-group row">
         <div className="card col-md-3">
-          <img className="card-img-top" src={bioData.photo} alt="Card image cap"/>
+          <img className="card-img-top"  src={bioData.photo} alt="Card image cap"/>
           <div className="card-block">
             <h4 className="card-title">{bioData.name}</h4>
-          </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">{bioData.location}</li>
-          </ul>
-          <div className="card-block">
             <a href="#" className="card-link">Email</a>
             <a href="#" className="card-link">LinkedIn</a>
             <BioForm buttonName="Edit" onFormSubmit={this.handleFormSubmit.bind(this)}/>
@@ -50,7 +45,7 @@ class Bio extends Component {
           </div>
         </div>
   </div>
-  </div>  
+  </div>
     );
   }
 }
