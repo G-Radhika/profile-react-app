@@ -24,7 +24,7 @@ class Projects extends Component {
 
   render(){
 		return(
-			<div className="Projects">
+			<div className="card-deck">
 			 		{
 			 			this.props.projects.map(project => {
 			 				return ( 

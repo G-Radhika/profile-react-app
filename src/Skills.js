@@ -13,6 +13,7 @@ class Skills extends Component {
     return (
         <div className="card">
           <div className="card-block">
+             <h4 className="card-title">Skills</h4>
         <div className="label-group">
 			 		{
               this.props.skills.map(skill => { return (

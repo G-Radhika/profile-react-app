@@ -24,23 +24,15 @@ class Project extends Component {
   render() {
     const projectData = this.props.projectData
     return (
-      <div className="container-fluid">
-      <div className="card-group row">
-        <div className="card col-md-3">
-          <img className="card-img-top" src={projectData.photo} alt="Card image cap"/>
+        <div className="card">
+          <img className="card-img-top img-fluid" src={projectData.photo} alt="Card image cap"/>
           <div className="card-block">
             <h4 className="card-title">{projectData.name}</h4>
+             <p className="card-text">{projectData.summary}</p>
             <ProjectForm buttonName="Edit" onFormSubmit={this.handleFormSubmit.bind(this)}/>
           </div>
         </div>
-         <div className="card col-md-9">
-          <div className="card-block">
-            <h4 className="card-title">Summary</h4>
-            <p className="card-text">{projectData.summary}</p>
-          </div>
-        </div>
-      </div>
-      </div>
+       
     );
   }
 }
