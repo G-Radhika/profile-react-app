@@ -11,6 +11,7 @@ class Skills extends Component {
       return (<div/>);
     }
     return (
+      <div className="container">
         <div className="card">
           <div className="card-block">
              <h4 className="card-title">Skills</h4>
@@ -26,6 +27,7 @@ class Skills extends Component {
 			 		}
            </div>
            </div>
+          </div>
         </div>
     );
   }

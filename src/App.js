@@ -82,7 +82,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="container-fluid" >
+        <div className="container" >
           <nav className="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
             <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -108,11 +108,17 @@ class App extends Component {
             </ul>
             </div>
             </nav>
+            </div>
           <Bio  emitter={this.emitter} bioData={this.state.bioData}/>
           <Skills emitter={this.emitter} skills={this.state.skills}/>
           <Projects emitter={this.emitter} projects={this.state.projects}/>
-          
+         <div className="container">
+         <footer class="footer">
+          <p>&copy; Company 2017</p>
+        </footer>
         </div>
+
+        
       </div>
     );
   }

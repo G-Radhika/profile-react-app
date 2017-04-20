@@ -26,26 +26,31 @@ class Bio extends Component {
     if (bioData.name === '') {
       return (<div/>);
     }
+  
     return (
-  <div className="container-fluid">
-  <div className="card-group row">
-        <div className="card col-md-3">
+       <div className="container">
+      <section className="jumbotron text-center">
+     
+        <div className="row">
+          <div className="col col-md-3">
+            <div className="card">
           <img className="card-img-top"  src={bioData.photo} alt="Card image cap"/>
-          <div className="card-block">
-            <h4 className="card-title">{bioData.name}</h4>
-            <a href="#" className="card-link">Email</a>
-            <a href="#" className="card-link">LinkedIn</a>
-            <BioForm buttonName="Edit" onFormSubmit={this.handleFormSubmit.bind(this)}/>
           </div>
-        </div>
-         <div className="card col-md-9">
-          <div className="card-block">
-            <h4 className="card-title">Summary</h4>
-            <p className="card-text">{bioData.summary}</p>
           </div>
-        </div>
-  </div>
-  </div>
+          <div className="col col-md-9">
+        <h1 className="jumbotron-heading">{bioData.name}</h1>
+        <p className="lead text-muted">{bioData.summary}</p>
+        <p>
+          <a href="#" className="btn btn-primary">Main call to action</a>
+          <a href="#" className="btn btn-secondary">Secondary action</a>
+        </p>
+      </div>
+      </div>
+       </section>
+      </div>
+   
+
+    
     );
   }
 }

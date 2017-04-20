@@ -2,6 +2,9 @@
  
 }
 
+.container {
+  padding-bottom:2rem;
+}
 
 
 @keyframes App-logo-spin {
