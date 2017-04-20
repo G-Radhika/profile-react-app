@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './Skills.css';
+import './css/Skills.css';
 import {Jumbotron} from 'react-bootstrap'
+import { connect } from 'react-redux';
 
 class Skills extends Component {
 
@@ -33,4 +34,15 @@ class Skills extends Component {
   }
 }
 
-export default Skills;
+
+function mapStateToProps(state) {
+  // Whatever is returned will show up as props
+  // inside of BookList
+  return {
+    skills: state.skills
+  };
+}
+
+export default connect(mapStateToProps(Skills));
+
+

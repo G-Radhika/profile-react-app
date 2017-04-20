@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './Bio.css';
+import './css/Bio.css';
 import BioForm from './BioForm'
 import {Jumbotron} from 'react-bootstrap'
 import {Image} from 'react-bootstrap'
+import { connect } from 'react-redux'
 
 class Bio extends Component {
 
@@ -55,4 +56,13 @@ class Bio extends Component {
   }
 }
 
-export default Bio;
+function mapStateToProps(state) {
+  // Whatever is returned will show up as props
+  // inside of BookList
+  return {
+    bioData: state.bioData
+  };
+}
+
+export default connect(mapStateToProps)(Bio);
+

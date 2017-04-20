@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
 import Bio from './Bio'
 import BioForm from './BioForm'
 import Skills from './Skills'

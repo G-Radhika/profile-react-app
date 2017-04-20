@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import './Skills.css'
+import './css/Skills.css'
 
 
 

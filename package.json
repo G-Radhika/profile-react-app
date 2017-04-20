@@ -9,7 +9,9 @@
     "events": "latest",
     "jquery": "^3.2.1",
     "bootstrap":"4.0.0-alpha.6",
-    "prop-types": "latest"
+    "prop-types": "latest",
+    "react-redux": "^4.0.0",
+    "redux": "^3.0.4"
   },
   "devDependencies": {
     "react-scripts": "latest"

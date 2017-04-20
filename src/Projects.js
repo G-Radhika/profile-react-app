@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import './Project.css';
+import './css/Project.css';
 import ProjectForm from './ProjectForm'
 import {Jumbotron, Button, ButtonToolbar} from 'react-bootstrap'
 import Project from './Project'
 import GitHubProjects from './github/GithubProjects.js'
+import { connect } from 'react-redux';
 
 class Projects extends Component {
 
@@ -40,4 +41,15 @@ class Projects extends Component {
 	}
 }
 
-export default Projects;
+
+
+function mapStateToProps(state) {
+  // Whatever is returned will show up as props
+  // inside of BookList
+  return {
+    projects: state.projects
+  };
+}
+
+export default connect(mapStateToProps(Projects));
+
