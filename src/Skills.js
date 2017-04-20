@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import './css/Skills.css';
-import {Jumbotron} from 'react-bootstrap'
 import { connect } from 'react-redux';
 
 class Skills extends Component {
 
+  constructor(props){
+      super(props)
+  }
 
   render() {
-    //const skills = this.props.skills
-    if (this.props.skills.length === 0) {
+    if (this.props.skillsData.length === 0) {
       return (<div/>);
     }
     return (
@@ -18,7 +19,7 @@ class Skills extends Component {
              <h4 className="card-title">Skills</h4>
         <div className="label-group">
 			 		{
-              this.props.skills.map(skill => { return (
+              this.props.skillsData.map(skill => { return (
                 <div className="skill" key={skill}>
                   {skill}
                 </div>
@@ -39,10 +40,9 @@ function mapStateToProps(state) {
   // Whatever is returned will show up as props
   // inside of BookList
   return {
-    skills: state.skills
+    skillsData: state.skillsData
   };
 }
 
-export default connect(mapStateToProps(Skills));
-
+export default connect(mapStateToProps)(Skills)
 

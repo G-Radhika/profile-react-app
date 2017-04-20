@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
 import './css/Skills.css'
 
 
@@ -48,7 +47,7 @@ class SkillsForm extends Component{
                         </button>
                     </div>
                 <div className="modal-body">
-                   <form clasName="form-inline" onSubmit={this.handleAddSkill}>
+                   <form className="form-inline" onSubmit={this.handleAddSkill}>
                         <label className="sr-only" htmlFor="inlineFormInput">Skill</label>
                         <input type="text" ref="skill" className="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="ex. Javascript"/>
                         <button type="submit" className="btn">Add</button>

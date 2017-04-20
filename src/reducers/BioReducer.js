@@ -1,4 +1,4 @@
-export default function() {
+export  default  function() {
   return {
         name: 'Sridhar Uyyala', 
         location: '97124', 

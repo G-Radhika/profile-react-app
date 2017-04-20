@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import Profile from './Profile';
 import Search from './Search';
 import $ from 'jquery'
-import {Modal, Button, ButtonGroup, Popover, Tooltip, FormControl, FormGroup, ControlLabel, HelpBlock} from 'react-bootstrap'
 
 class GitHubProjects extends Component{
 	constructor(props){

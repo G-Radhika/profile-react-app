@@ -16,27 +16,14 @@ class App extends Component {
     super(props)
     this.state = {
       bioData : {},
-      skills : [],
-      projects: [],
+      skillsData : [],
+      projectsData: [],
     }
     this.emitter = new EventEmitter()
     this.handleProjectsData = this.handleProjectsData.bind(this)
-     this.handleSkillsData = this.handleSkillsData.bind(this)
+    this.handleSkillsData = this.handleSkillsData.bind(this)
   }
 
-  
-
-  getUserData() {
-    this.setState({bioData: {
-            name: '', 
-            location: '', 
-            summary: '',
-            photo: 'photo_default.png'}})
-  }
-
-  getSkills() {
-    this.setState({skills: []})
-  }
 
   handleBioFormSubmit(bioData2){
 		  this.setState({bioData: bioData2})
@@ -48,32 +35,30 @@ class App extends Component {
 
   handleProjectsData(new_projects) {
     let all_projects = []
-    this.state.projects.forEach(function(project) {
+    this.state.projectsData.forEach(function(project) {
       all_projects.push(project)
     })
     new_projects.forEach(function(project) {
       project.photo = "photo_default.png"
       all_projects.push(project)
     })
-    this.setState({projects:all_projects})
+    this.setState({projectData:all_projects})
   }
 
    handleSkillsData(new_skills) {
     let all_skills = []
-    this.state.skills.forEach(function(skill) {
+    this.state.skillsData.forEach(function(skill) {
       all_skills.push(skill)
     })
     new_skills.forEach(function(skill) {
       all_skills.push(skill)
     })
-    this.setState({skills:all_skills})
+    this.setState({skillsData:all_skills})
   }
 
 
 
   componentDidMount(){
-		this.getUserData()
-    this.getSkills()
     this.emitter.addListener('NewBioData', (bioData) => this.handleBioFormSubmit(bioData) )
     this.emitter.addListener('NewProjectsData', (projects) => this.handleProjecstData(projects) )
     this.emitter.addListener('NewSkillsData', (skills) => this.handleSkillsData(skills) )
@@ -109,11 +94,12 @@ class App extends Component {
             </div>
             </nav>
             </div>
-          <Bio  emitter={this.emitter} bioData={this.state.bioData}/>
-          <Skills emitter={this.emitter} skills={this.state.skills}/>
-          <Projects emitter={this.emitter} projects={this.state.projects}/>
+          <Bio/>
+          <Skills/>
+          <Projects/>
+        
          <div className="container">
-         <footer class="footer">
+         <footer className="footer">
           <p>&copy; Company 2017</p>
         </footer>
         </div>

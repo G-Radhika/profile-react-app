@@ -5,13 +5,12 @@
   "dependencies": {
     "react": "latest",
     "react-dom": "latest",
-    "react-bootstrap": "latest",
     "events": "latest",
     "jquery": "^3.2.1",
     "bootstrap":"4.0.0-alpha.6",
     "prop-types": "latest",
-    "react-redux": "^4.0.0",
-    "redux": "^3.0.4"
+    "react-redux": "latest",
+    "redux": "latest"
   },
   "devDependencies": {
     "react-scripts": "latest"

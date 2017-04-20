@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './css/Project.css';
 import ProjectForm from './ProjectForm'
-import {Jumbotron} from 'react-bootstrap'
-import {Image} from 'react-bootstrap'
 
 class Project extends Component {
 

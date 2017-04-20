@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import './css/Bio.css';
-import BioForm from './BioForm'
-import {Jumbotron} from 'react-bootstrap'
-import {Image} from 'react-bootstrap'
 import { connect } from 'react-redux'
 
 class Bio extends Component {
 
   constructor(props){
       super(props)
-      this.state = {isBioFormOn: false};
 
       // This binding is necessary to make `this` work in the callback
       this.handleFormSubmit = this.handleFormSubmit.bind(this)
@@ -64,5 +60,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Bio);
+export default connect(mapStateToProps)(Bio)
 

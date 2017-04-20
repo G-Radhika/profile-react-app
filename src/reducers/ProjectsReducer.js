@@ -1,4 +1,4 @@
-export default function() {
+export default function()  {
   return [
     {
         name: 'personal-photographer',
@@ -10,5 +10,5 @@ export default function() {
         summary: 'another great project',
         photo:'demo photo here'
     }
-  ]
+  ];
 }
