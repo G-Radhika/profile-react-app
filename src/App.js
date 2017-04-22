@@ -20,8 +20,6 @@ class App extends Component {
       projectsData: [],
     }
     this.emitter = new EventEmitter()
-    this.handleProjectsData = this.handleProjectsData.bind(this)
-    this.handleSkillsData = this.handleSkillsData.bind(this)
   }
 
 
@@ -61,7 +59,7 @@ class App extends Component {
   componentDidMount(){
     this.emitter.addListener('NewBioData', (bioData) => this.handleBioFormSubmit(bioData) )
     this.emitter.addListener('NewProjectsData', (projects) => this.handleProjecstData(projects) )
-    this.emitter.addListener('NewSkillsData', (skills) => this.handleSkillsData(skills) )
+    this.emitter.addListener('NewSkillsData', (skillsData) => this.handleSkillsData(skillsData) )
 	}
 
   render() {
@@ -79,13 +77,13 @@ class App extends Component {
                 <BioForm className="nav-link" buttonName="Bio" onFormSubmit={this.handleBioFormSubmit.bind(this)}/>
               </li>
               <li className="nav-item">
-                <ProjectForm buttonName="+Project" onFormSubmit={this.handleProjectsData}/>
+                <ProjectForm buttonName="+Project" onFormSubmit={this.handleProjectsData.bind(this)}/>
               </li>
               <li className="nav-item">
                 <GitHubProjects onFormSubmit={this.handleProjectsData}/>
               </li>
               <li className="nav-item">
-                <SkillsForm buttonName="Skills" onFormSubmit={this.handleSkillsData}/>
+                <SkillsForm buttonName="Skills" onFormSubmit={this.handleSkillsData.bind(this)}/>
               </li>
               <li className="nav-item">
                 <a className="nav-link active" href="#">Export</a>
