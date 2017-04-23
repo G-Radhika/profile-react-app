@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './css/Project.css'
-
+import {addProjectsData} from './actions'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 
 class ProjectForm extends Component{
@@ -17,7 +19,7 @@ class ProjectForm extends Component{
 	handleSubmit(e){
 		e.preventDefault()
 
-		this.props.onFormSubmit([{
+		this.props.addProjectData([{
             name: this.refs.name.value,
             summary: this.refs.summary.value,
             photo: "photo_default.png"
@@ -71,4 +73,13 @@ class ProjectForm extends Component{
 	}
 }
 
-export default ProjectForm
+//map actions to props
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addProjectData: (projects) => {
+      dispatch({type : 'ADD_PROJECTS', payload: projects})
+    }
+  }  
+}
+
+export default  connect(null, mapDispatchToProps)(ProjectForm);

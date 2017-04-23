@@ -1,11 +1,12 @@
-export  default  function(state=null, action) {
+const SkillsReducer =  (state=[], action) => {
 
   switch(action.type) {
   case 'ADD_SKILLS':
-    console.log('in add_skills')
     return action.payload;
   default:
     return ['javascript', 'C']
   }
 
 }
+
+export default SkillsReducer

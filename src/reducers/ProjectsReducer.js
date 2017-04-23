@@ -1,5 +1,11 @@
-export default function()  {
-  return [
+
+const ProjectsReducer =  (state=[], action) => {
+
+  switch(action.type) {
+  case 'ADD_PROJECTS':
+    return action.payload;
+  default:
+    return [
     {
         name: 'personal-photographer',
         summary: `React makes it painless to create interactive UIs'
@@ -27,4 +33,8 @@ export default function()  {
         photo:'https://angular.io/resources/images/logos/angular/angular.svg'
     },
   ];
+  }
+
 }
+
+export default ProjectsReducer

@@ -6,16 +6,9 @@ class Bio extends Component {
 
   constructor(props){
       super(props)
-
-      // This binding is necessary to make `this` work in the callback
-      this.handleFormSubmit = this.handleFormSubmit.bind(this)
   }
 
   componentWillUpdate() {
-  }
-
-  handleFormSubmit(bioData) {
-    this.props.emitter.emit('NewBioData', bioData)
   }
 
   render() {
@@ -44,19 +37,14 @@ class Bio extends Component {
       </div>
       </div>
        </section>
-      </div>
-   
-
-    
+      </div> 
     );
   }
 }
 
 function mapStateToProps(state) {
-  // Whatever is returned will show up as props
-  // inside of BookList
   return {
-    bioData: state.bioData
+    bioData: state.BioReducer
   };
 }
 

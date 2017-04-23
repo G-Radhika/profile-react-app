@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import './css/Skills.css'
-import {addSkills} from './actions/index'
+import {addSkillsData} from './actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-
-console.log(addSkills)
 
 class SkillsForm extends Component{
     constructor(props) {
@@ -29,7 +27,8 @@ class SkillsForm extends Component{
 	}
 
     handleSubmit() {
-        this.props.addSkills(['javascript', 'bla']);
+        this.props.addSkillsData(this.state.skills)
+        this.setState({skills: []})
     }
 
 	render(){
@@ -78,15 +77,14 @@ class SkillsForm extends Component{
 	}
 }
 
-// Anything returned from this function will end up as props
-// on the BookList container
-function mapDispatchToProps(dispatch) {
-  // Whenever selectBook is called, the result shoudl be passed
-  // to all of our reducers
-  return bindActionCreators({ addSkills: addSkills }, dispatch);
+
+//map actions to props
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addSkillsData: (skills) => {
+      dispatch({type : 'ADD_SKILLS', payload: skills})
+    }
+  }  
 }
 
-// Promote BookList from a component to a container - it needs to know
-// about this new dispatch method, selectBook. Make it available
-// as a prop.
-export default connect(null, mapDispatchToProps)(SkillsForm);
+export default  connect(null, mapDispatchToProps)(SkillsForm);

@@ -1,4 +1,4 @@
-export  default  function(state=null, action) {
+const BioReducer = (state=null, action) => {
 
   switch(action.type) {
   case 'EDIT_BIODATA':
@@ -11,3 +11,5 @@ export  default  function(state=null, action) {
         summary: 'Software Engineer developing cool appliations bla bal abla',
         photo: 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAdxAAAAJDQ4NGE0MjdiLWUwNDgtNDUzYS1iYTU0LTViNDI5MGNiNDc1OA.jpg'};
 }
+
+export default BioReducer

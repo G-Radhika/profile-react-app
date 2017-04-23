@@ -1,5 +1,5 @@
 
-export function addSkills(skillsData) {
+export const addSkillsData = (skillsData = []) =>  {
   // selectBook is an ActionCreator, it needs to return an action,
   // an object with a type property.
   return {
@@ -8,7 +8,7 @@ export function addSkills(skillsData) {
   };
 }
 
-export function editBioData(bioData) {
+export const editBioData = (bioData) => {
   // selectBook is an ActionCreator, it needs to return an action,
   // an object with a type property.
   return {

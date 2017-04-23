@@ -17,7 +17,7 @@ class Skills extends Component {
         <div className="card">
           <div className="card-block">
              <h4 className="card-title">Skills</h4>
-        <div className="label-group">
+          <div className="label-group">
 			 		{
               this.props.skillsData.map(skill => { return (
                 <div className="skill" key={skill}>
@@ -37,10 +37,8 @@ class Skills extends Component {
 
 
 function mapStateToProps(state) {
-  // Whatever is returned will show up as props
-  // inside of BookList
   return {
-    skillsData: state.skillsData
+    skillsData: state.SkillsReducer
   };
 }
 

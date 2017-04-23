@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
 import './css/Bio.css'
-import { editBioData } from './actions/index';
+import { editBioData } from './actions';
 import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import Bio from './Bio'
 
 
 
 class BioForm extends Component{
     constructor(props) {
         super(props)
-        this.state = {
-            showModal : false
-
-        }
         this.handleSubmit = this.handleSubmit.bind(this)
 
     }
@@ -80,16 +77,10 @@ class BioForm extends Component{
 	}
 }
 
-
-// Anything returned from this function will end up as props
-// on the BookList container
-function mapDispatchToProps(dispatch) {
-  // Whenever selectBook is called, the result shoudl be passed
-  // to all of our reducers
-  return bindActionCreators({ editBioData: editBioData }, dispatch);
+const  mapDispatchToProps = (dispatch) => {
+  return {
+      editBioData: (bioData) => { dispatch(editBioData(bioData))}
+  }
 }
 
-// Promote BookList from a component to a container - it needs to know
-// about this new dispatch method, selectBook. Make it available
-// as a prop.
-export default connect(null, mapDispatchToProps)(BioForm);
+export default  connect(null, mapDispatchToProps)(BioForm);

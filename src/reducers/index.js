@@ -4,8 +4,8 @@ import SkillsReducer from './SkillsReducer';
 import ProjectsReducer from './ProjectsReducer'
 
 const AppReducer = combineReducers({
-  bioData: BioReducer,
-  skillsData: SkillsReducer,
-  projectsData: ProjectsReducer
+  BioReducer,
+  SkillsReducer,
+  ProjectsReducer
 });
 export default AppReducer;
