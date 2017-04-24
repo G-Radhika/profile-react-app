@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import Profile from './Profile';
 import Search from './Search';
 import $ from 'jquery'
+import {addProjectsData} from '../actions'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 class GitHubProjects extends Component{
 	constructor(props){
@@ -66,7 +69,7 @@ class GitHubProjects extends Component{
 
 	handleProjectsSelected(projects) {
 		this.onHideModal()
-		this.props.onFormSubmit(projects)
+		this.props.addProjectData(projects)
 	}
 	
 
@@ -87,7 +90,7 @@ class GitHubProjects extends Component{
                     <div className="modal-content">
                         <div className="modal-header">
                         <h5 className="modal-title" id="githubModalLabel">Github</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" className="close"  data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -106,9 +109,22 @@ class GitHubProjects extends Component{
 }
 
 
+
+
 GitHubProjects.defaultProps ={
 	clientId: '75c556ed8660b478c919',
 	clientSecret: '9d68ee85c0f8b5240f4cd36f9bd8bed7c6c95c6b'
 }
 
-export default GitHubProjects
+
+//map actions to props
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addProjectData: (projects) => {
+      dispatch({type : 'ADD_PROJECTS', payload: projects})
+    }
+  }  
+}
+
+export default  connect(null, mapDispatchToProps)(GitHubProjects);
+

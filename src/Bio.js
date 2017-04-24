@@ -31,8 +31,8 @@ class Bio extends Component {
         <h1 className="jumbotron-heading">{bioData.name}</h1>
         <p className="lead text-muted">{bioData.summary}</p>
         <p>
-          <a href="#" className="btn btn-primary">Main call to action</a>
-          <a href="#" className="btn btn-secondary">Secondary action</a>
+          <a href="#" className="btn">LinkedIn</a>
+          <a href="#" className="btn">Email</a>
         </p>
       </div>
       </div>

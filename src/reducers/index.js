@@ -6,6 +6,6 @@ import ProjectsReducer from './ProjectsReducer'
 const AppReducer = combineReducers({
   BioReducer,
   SkillsReducer,
-  ProjectsReducer
+  ProjectsReducer,
 });
 export default AppReducer;

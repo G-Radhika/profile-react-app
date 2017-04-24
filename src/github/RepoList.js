@@ -57,7 +57,7 @@ class RepoList extends Component{
 
 						<form onSubmit={this.handleFormSubmit}>
 							{this.createCheckboxes(this.props.userRepos)}
-							<button className="btn btn-default"   type="submit">Submit</button>
+							<button className="btn btn-default"  type="submit">Submit</button>
 						</form>
 
 		);

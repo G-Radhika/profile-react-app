@@ -1,43 +1,55 @@
 import React, { Component } from 'react'
 import './css/Project.css'
-import {addProjectsData} from './actions'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import $ from 'jquery';
 
 
 class ProjectForm extends Component{
     constructor(props) {
         super(props)
-        this.state = {
-            showModal : false
-
-        }
         this.handleSubmit = this.handleSubmit.bind(this)
 
     }
 
 	handleSubmit(e){
 		e.preventDefault()
-
-		this.props.addProjectData([{
+        this.props.onFormSubmit({
             name: this.refs.name.value,
             summary: this.refs.summary.value,
             photo: "photo_default.png"
-        }]);
+        })
 
-        this.refs.name.value = ''
-        this.refs.summary.value = ''
-        this.refs.photo.value = ''
+      //  this.refs.name.value = ''
+       // this.refs.summary.value = ''
+       // this.refs.photo.value = ''
 	}
+
+    handleEdit() {
+         if(this.props.projectData !== undefined) {
+            this.refs.name.value = this.props.projectData.name
+            this.refs.summary.value = this.props.projectData.summary
+            //this.refs.photo.value =  this.props.bioData.photo
+        }
+    }
+
+    componentDidMount(){
+         if(this.props.projectData !== undefined) {
+            this.refs.name.value = this.props.projectData.name
+            this.refs.summary.value = this.props.projectData.summary
+            //this.refs.photo.value =  this.props.bioData.photo
+        }
+	}
+    
+    
+
 
 	render(){
 		return(
         <div>
-            <button type="button" className="btn btn-primary btn-lg btn-link" data-toggle="modal" data-target="#projectFormModal">
+            <button type="button" onClick={this.handleEdit.bind(this)} className="btn btn-primary btn-lg btn-link" data-toggle="modal" data-target="#projectFormModal">
                 {this.props.buttonName}
             </button>
 
-            <div className="modal fade" id="projectFormModal" tabIndex="-1" role="dialog" aria-labelledby="projectModalLabel" aria-hidden="true">
+            <div className="modal fade"  id="projectFormModal" tabIndex="-1" role="dialog" aria-labelledby="projectModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
@@ -50,7 +62,7 @@ class ProjectForm extends Component{
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="formGroupName">Title</label>
-                            <input type="text" className="form-control" ref="name" id="formGroupName" placeholder="Enter Project Title"/>
+                            <input type="text" className="form-control" ref="name" id="formGroupName"  placeholder="Enter Project Title"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="formGroupSummary">Summary</label>
@@ -73,13 +85,5 @@ class ProjectForm extends Component{
 	}
 }
 
-//map actions to props
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addProjectData: (projects) => {
-      dispatch({type : 'ADD_PROJECTS', payload: projects})
-    }
-  }  
-}
 
-export default  connect(null, mapDispatchToProps)(ProjectForm);
+export default ProjectForm;

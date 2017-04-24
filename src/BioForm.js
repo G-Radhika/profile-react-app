@@ -24,10 +24,17 @@ class BioForm extends Component{
             photo: "photo_default.png"
         });
 
-        this.refs.name.value = ''
-        this.refs.location.value = ''
-        this.refs.summary.value = ''
-        this.refs.photo.value = ''
+        //this.refs.name.value = ''
+        //this.refs.location.value = ''
+        //this.refs.summary.value = ''
+        //this.refs.photo.value = ''
+	}
+
+    componentDidMount(){
+        this.refs.name.value = this.props.bioData.name
+        this.refs.location.value = this.props.bioData.location
+        this.refs.summary.value = this.props.bioData.summary
+        //this.refs.photo.value =  this.props.bioData.photo
 	}
 
 	render(){
@@ -77,10 +84,18 @@ class BioForm extends Component{
 	}
 }
 
+
+function mapStateToProps(state) {
+  return {
+    bioData: state.BioReducer
+  };
+}
+
+
 const  mapDispatchToProps = (dispatch) => {
   return {
       editBioData: (bioData) => { dispatch(editBioData(bioData))}
   }
 }
 
-export default  connect(null, mapDispatchToProps)(BioForm);
+export default  connect(mapStateToProps, mapDispatchToProps)(BioForm);

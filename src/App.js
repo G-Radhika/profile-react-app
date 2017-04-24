@@ -5,7 +5,7 @@ import Bio from './Bio'
 import BioForm from './BioForm'
 import Skills from './Skills'
 import {EventEmitter} from 'events';
-import Projects from './Projects'
+import ProjectsContainer from './ProjectsContainer'
 import ProjectForm from './ProjectForm'
 import GitHubProjects from './github/GithubProjects'
 import SkillsForm from './SkillsForm'
@@ -25,6 +25,10 @@ class App extends Component {
 
 	}
 
+  handleProjectSubmit(project) {
+    
+  }
+
   render() {
     return (
       <div className="App">
@@ -40,7 +44,7 @@ class App extends Component {
                 <BioForm className="nav-link" buttonName="Bio"/>
               </li>
               <li className="nav-item">
-                <ProjectForm buttonName="+Project"/>
+              
               </li>
               <li className="nav-item">
                 <GitHubProjects/>
@@ -57,8 +61,7 @@ class App extends Component {
             </div>
           <Bio/>
           <Skills/>
-          <Projects/>
-        
+          <ProjectsContainer/>
          <div className="container">
          <footer className="footer">
           <p>&copy; Company 2017</p>

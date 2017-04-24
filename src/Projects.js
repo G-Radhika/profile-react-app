@@ -9,17 +9,13 @@ class Projects extends Component {
       super(props)
   }
 
-
-  componentWillUpdate() {
-  }
-
   render(){
 		return(
       <div className="container">
 			  <div className="card-deck">
 			 		{
 			 			this.props.projectsData.map(project => {
-			 				return ( <Project key={project.name} projectData={project}/>)
+			 				return ( <Project key={project.name} onFormSubmit={this.props.onFormSubmit} projectData={project}/>)
 			 			})
 			 		}
             
@@ -29,13 +25,5 @@ class Projects extends Component {
 	}
 }
 
-
-
-function mapStateToProps(state) {
-  return {
-    projectsData: state.ProjectsReducer
-  };
-}
-
-export default connect(mapStateToProps)(Projects)
+export default Projects
 

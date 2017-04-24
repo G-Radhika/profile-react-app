@@ -28,8 +28,14 @@ class SkillsForm extends Component{
 
     handleSubmit() {
         this.props.addSkillsData(this.state.skills)
-        this.setState({skills: []})
+        //this.setState({skills: []})
     }
+
+    componentDidMount(){
+        this.setState({skills:this.props.skills})
+        //this.props.skills.push(this.refs.skill.value)
+	}
+
 
 	render(){
 		return(
@@ -78,6 +84,13 @@ class SkillsForm extends Component{
 }
 
 
+function mapStateToProps(state) {
+  return {
+    skills: state.SkillsReducer
+  };
+}
+
+
 //map actions to props
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -87,4 +100,4 @@ const mapDispatchToProps = (dispatch) => {
   }  
 }
 
-export default  connect(null, mapDispatchToProps)(SkillsForm);
+export default  connect(mapStateToProps, mapDispatchToProps)(SkillsForm);

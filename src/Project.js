@@ -6,17 +6,6 @@ class Project extends Component {
 
   constructor(props){
       super(props)
-      this.state = {isBioFormOn: false};
-
-      // This binding is necessary to make `this` work in the callback
-      this.handleFormSubmit = this.handleFormSubmit.bind(this)
-  }
-
-  componentWillUpdate() {
-  }
-
-  handleFormSubmit(projectData) {
-    this.props.emitter.emit('NewProjectData', [projectData])
   }
 
   render() {
@@ -27,7 +16,7 @@ class Project extends Component {
           <div className="card-block">
             <h4 className="card-title">{projectData.name}</h4>
              <p className="card-text">{projectData.summary}</p>
-            <ProjectForm buttonName="Edit" onFormSubmit={this.handleFormSubmit.bind(this)}/>
+            <ProjectForm modalKey={projectData.name} buttonName="Edit" {...this.props}/>
           </div>
         </div>
        
@@ -35,4 +24,5 @@ class Project extends Component {
   }
 }
 
-export default Project;
+
+export default  Project;
