@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './css/Skills.css';
-import { connect } from 'react-redux';
 
 class Skills extends Component {
 
@@ -13,34 +12,22 @@ class Skills extends Component {
       return (<div/>);
     }
     return (
-      <div className="container">
-        <div className="card">
-          <div className="card-block">
-             <h4 className="card-title">Skills</h4>
-          <div className="label-group">
-			 		{
-              this.props.skillsData.map(skill => { return (
-                <div className="skill" key={skill}>
-                  {skill}
-                </div>
-               
-                )
-			 			})
-			 		}
-           </div>
-           </div>
-          </div>
-        </div>
+        
+            <div className="label-group">
+              {
+                this.props.skillsData.map(skill => {
+                  return (
+                    <div className="skill" key={skill}>
+                      {skill}
+                    </div>
+                  )
+                })
+              }
+            </div>
+         
     );
   }
 }
 
-
-function mapStateToProps(state) {
-  return {
-    skillsData: state.SkillsReducer
-  };
-}
-
-export default connect(mapStateToProps)(Skills)
+export default Skills
 

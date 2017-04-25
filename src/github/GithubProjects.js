@@ -81,7 +81,7 @@ class GitHubProjects extends Component{
 	render(){
 		return(
         <div>
-            <button type="button" className="btn btn-primary btn-lg btn-link" data-toggle="modal" data-target="#githubFormModal">
+            <button type="button" className="btn btn-primary btn-link float-right" data-toggle="modal" data-target="#githubFormModal">
                 Github
             </button>
 

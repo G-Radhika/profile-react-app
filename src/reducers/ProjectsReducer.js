@@ -1,5 +1,6 @@
 
 const ProjectsReducer =  (state=[], action) => {
+  console.log('ProjectReducer: ',state, action)
 
   switch(action.type) {
   case 'ADD_PROJECT':
@@ -15,7 +16,7 @@ const ProjectsReducer =  (state=[], action) => {
                             return project })
     return newProjects
   default:
-    return []
+    return state
   }
 }
 

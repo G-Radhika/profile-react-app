@@ -10,7 +10,8 @@
     "bootstrap":"4.0.0-alpha.6",
     "prop-types": "latest",
     "react-redux": "latest",
-    "redux": "latest"
+    "redux": "latest",
+    "material-design-icons" : "latest"
   },
   "devDependencies": {
     "react-scripts": "latest"

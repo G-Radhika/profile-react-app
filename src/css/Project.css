@@ -1,6 +1,15 @@
 .Projects-Menu {
 }
 
+.card-margin {
+  margin-top: 1rem;
+  margin-left:1rem;
+}
+
+.row-margin {
+   margin-bottom: 1rem;
+}
+
 .container {
   padding-bottom:2rem;
 }

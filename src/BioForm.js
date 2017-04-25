@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
 import './css/Bio.css'
-import { editBioData } from './actions';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import Bio from './Bio'
-
 
 
 class BioForm extends Component{
@@ -39,63 +34,51 @@ class BioForm extends Component{
 
 	render(){
 		return(
-        <div>
-            <button type="button" className="btn btn-primary btn-lg btn-link  btn-active" data-toggle="modal" data-target="#bioFormModal">
-                {this.props.buttonName}
-            </button>
+            <div>
+                <button type="button" className="btn btn-primary btn-lg btn-link  btn-active" data-toggle="modal" data-target="#bioFormModal">
+                    {this.props.buttonName}
+                </button>
 
-            <div className="modal fade" id="bioFormModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLabel">Bio</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                <div className="modal fade" id="bioFormModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">Bio</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                <form onSubmit={this.handleSubmit}>
+                                    <div className="form-group">
+                                        <label htmlFor="formGroupName">Full Name</label>
+                                        <input type="text" className="form-control" ref="name" id="formGroupName" placeholder="Enter firstname lastname" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="formGroupLocation">Location</label>
+                                        <input type="number" className="form-control" ref="location" id="formGroupLocation" placeholder="Enter zipcode" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="formGroupSummary">Summary</label>
+                                        <textarea className="form-control" ref="summary" id="formGroupSummary" placeholder="Enter profile summary" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="formGroupPhoto">Photo</label>
+                                        <input type="file" className="form-control" ref="photo" id="formGroupPhoto" placeholder="Upload profile picture" />
+                                    </div>
+                                    <button type="submit" className="btn btn-primary" data-toggle="modal" data-target="#bioFormModal">Submit</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                <div className="modal-body">
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="formGroupName">Full Name</label>
-                            <input type="text" className="form-control" ref="name" id="formGroupName" placeholder="Enter firstname lastname"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="formGroupLocation">Location</label>
-                            <input type="number" className="form-control" ref="location" id="formGroupLocation" placeholder="Enter zipcode"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="formGroupSummary">Summary</label>
-                            <textarea className="form-control" ref="summary" id="formGroupSummary" placeholder="Enter profile summary"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="formGroupPhoto">Photo</label>
-                            <input type="file" className="form-control" ref="photo" id="formGroupPhoto" placeholder="Upload profile picture"/>
-                        </div>
-                         <button type="submit" className="btn btn-primary" data-toggle="modal" data-target="#bioFormModal">Submit</button>
-                    </form>
                 </div>
-            </div>
-        </div>
-        </div>
 
-          
-        </div>
+
+            </div>
 		)
 	}
 }
 
 
-function mapStateToProps(state) {
-  return {
-    bioData: state.BioReducer
-  };
-}
 
-
-const  mapDispatchToProps = (dispatch) => {
-  return {
-      editBioData: (bioData) => { dispatch(editBioData(bioData))}
-  }
-}
-
-export default  connect(mapStateToProps, mapDispatchToProps)(BioForm);
+export default  BioForm;
