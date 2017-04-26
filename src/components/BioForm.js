@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './css/Bio.css'
+import '../css/Bio.css'
 
 
 class BioForm extends Component{

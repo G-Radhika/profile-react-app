@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './css/Bio.css';
+import '../css/Bio.css';
 
 class Bio extends Component {
 
@@ -12,7 +12,7 @@ class Bio extends Component {
 
   render() {
     const bioData = this.props.bioData
-    if (bioData.name === '') {
+    if (bioData.name === undefined) {
       return (<div />);
     }
 

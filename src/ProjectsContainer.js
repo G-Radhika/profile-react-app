@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Project from './Project'
-import ProjectForm from './ProjectForm'
+import Project from './components/Project'
+import ProjectForm from './components/ProjectForm'
 import GitHubProjects from './github/GithubProjects'
 
 

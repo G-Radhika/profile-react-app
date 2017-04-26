@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Bio from './Bio'
-import BioForm from './BioForm'
+import Bio from './components/Bio'
+import BioForm from './components/BioForm'
 
 
 

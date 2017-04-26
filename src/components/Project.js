@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './css/Project.css';
+import '../css/Project.css';
 import ProjectForm from './ProjectForm'
 
 class Project extends Component {
