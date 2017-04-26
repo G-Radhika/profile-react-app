@@ -1,0 +1,20 @@
+{
+  "BioData" : {
+      "name": "Sridhar Uyyala",
+      "summary": "Awesome Software Engineer",
+      "location": "97124",
+      "photo": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAdxAAAAJDQ4NGE0MjdiLWUwNDgtNDUzYS1iYTU0LTViNDI5MGNiNDc1OA.jpg"
+  },
+  "Skills": ["javascript", "c"],
+  "Projects": [ {
+      "name": "Project Title1",
+      "summary": "Awesome Project1",
+      "photo": "https://facebook.github.io/react/img/logo.svg"
+    },
+    {
+      "name": "Project Title2",
+      "summary": "Awesome Project2",
+      "photo": "https://facebook.github.io/react/img/logo.svg"
+    }
+  ]
+}
