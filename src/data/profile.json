@@ -1,9 +1,11 @@
 {
   "BioData" : {
       "name": "Sridhar Uyyala",
-      "summary": "Software Engineer. Currently building few ideas in Artificial Intelligence (AI) technologies.",
-      "location": "97124",
-      "photo": "profile_photo.jpg"
+      "summary": "Software Engineer. Currently building ideas in Artificial Intelligence (AI) technologies.",
+      "location": "Portland, OR, USA",
+      "photo": "profile_photo.jpg",
+      "refLinkedin":  "https://www.linkedin.com/in/sridharuyyala",
+      "email": "sridhar.uyyala@gmail.com"
   },
   "Skills": ["javascript", "C", "C++", "React.js", "Node.js", "MongDB", "Java", "Android", "File Systems", "Virtural Reality",
                 "Computer Vision", "Machine Learning", "Device Drivers", "Linux Kernel" ],

@@ -1,9 +1,16 @@
 .App {
- 
+  background-color: white;
+  
 }
 
 .container {
-  padding-bottom:2rem;
+  padding-bottom:0.25rem;
+}
+
+.jumbotron{
+    position: relative;
+    background: #eee;
+    text-align:center;
 }
 
 
