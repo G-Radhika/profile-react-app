@@ -1,20 +1,29 @@
 {
   "BioData" : {
       "name": "Sridhar Uyyala",
-      "summary": "Awesome Software Engineer",
+      "summary": "Software Engineer. Currently building few ideas in Artificial Intelligence (AI) technologies.",
       "location": "97124",
-      "photo": "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAdxAAAAJDQ4NGE0MjdiLWUwNDgtNDUzYS1iYTU0LTViNDI5MGNiNDc1OA.jpg"
+      "photo": "profile_photo.jpg"
   },
-  "Skills": ["javascript", "c"],
+  "Skills": ["javascript", "C", "C++", "React.js", "Node.js", "MongDB", "Java", "Android", "File Systems", "Virtural Reality",
+                "Computer Vision", "Machine Learning", "Device Drivers", "Linux Kernel" ],
   "Projects": [ {
-      "name": "Project Title1",
-      "summary": "Awesome Project1",
-      "photo": "https://facebook.github.io/react/img/logo.svg"
+      "name": "Traffic Sign Cassifier: Udacity Project",
+      "summary": "Applied deep neural networks and convolutional neural networks to classify traffic signs. Also, trained and validated a model so it can classify traffic sign images using the German Traffic Sign Dataset. After the model is trained, tested model on images of German traffic signs that found on the web.",
+      "photo": "https://raw.githubusercontent.com/Suyyala/CarND-Traffic-Sign-Classifier-Project/master/mytest/road-work-sign-road-works.jpg",
+      "ref": "https://github.com/Suyyala/CarND-Traffic-Sign-Classifier-Project"
     },
     {
-      "name": "Project Title2",
-      "summary": "Awesome Project2",
-      "photo": "https://facebook.github.io/react/img/logo.svg"
+      "name": "Behavioral Cloning: Udacity Project",
+      "summary": "Applied deep neural networks and convolutional neural networks to clone driving behavior. Trained, validated and tested the model using Keras. The model generated steering angle prediction for autonomous driving.",
+      "photo": "https://raw.githubusercontent.com/Suyyala/CarND-Behavioral-Cloning-P3/master/examples/recovery1.png",
+      "ref": "https://github.com/Suyyala/CarND-Behavioral-Cloning-P3"
+    },
+      {
+      "name": "Lane Finding: Udacity Project",
+      "summary": "Developed software pipeline to identify road lane boundaries in a video",
+      "photo": "https://raw.githubusercontent.com/Suyyala/CarND-Advanced-Lane-Lines/master/output_images/test6.jpg",
+      "ref": "https://github.com/Suyyala/CarND-Advanced-Lane-Lines"
     }
   ]
 }
